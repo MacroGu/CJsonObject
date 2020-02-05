@@ -23,10 +23,15 @@
 #ifndef cJSON__h
 #define cJSON__h
 
+#include <stdint.h>
 
 typedef int int32;
 typedef unsigned int uint32;
-typedef long long int64;
+#if __WORDSIZE == 64
+    typedef long int64;
+#else
+    typedef long long int64;
+#endif
 typedef unsigned long long uint64;
 
 #ifdef __cplusplus
